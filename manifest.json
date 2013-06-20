@@ -1,0 +1,26 @@
+{
+	"manifest_version": 2,
+
+	"name": "Sponsored Corgis",
+	"description": "Replace Facebook 'Sponsored Stories' with pictures of corgis.",
+	"version": "1.0",
+
+	"permissions": [
+		"https://www.facebook.com/",
+		"http://www.facebook.com/",
+		"https://www.secure.flickr.com/",
+		"tabs",
+		"storage"
+	],
+
+	"page_action": {
+	"default_title": "Sponsored Corgis",
+	"default_icon": "images/icon.png",
+	"default_popup": "settings.html"
+	},
+
+	"background": {
+		"scripts": ["bootstrap.js"],
+		"persistent": false
+	}
+}
