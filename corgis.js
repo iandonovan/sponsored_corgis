@@ -5,11 +5,13 @@ function get_localstorage_URLs(){
 }
 
 function corgi_cover(){
+	// Ads on the side of the page
 	var side_ads = document.getElementsByClassName("ego_column");
 	for (var i=0; i<side_ads.length; i++){
 		corgi_attack(side_ads[i]);
 	}
 
+	// And in the actual newsfeed
 	var stories = document.getElementsByClassName("uiUnifiedStory");
 	for (var i=0; i<stories.length; i++){
 		var story = stories[i];
@@ -17,6 +19,13 @@ function corgi_cover(){
 		if (ad.length > 0) {
 			corgi_attack(story);
 		}
+	}
+
+	// The big one you get when you log out
+	var logged_out_ads = document.getElementsByClassName("loggedOutAuxLinks");
+	for (var i=0; i<logged_out_ads.length; i++){
+		ad = logged_out_ads[i];
+		corgi_attack(ad.parentNode);
 	}
 }
 

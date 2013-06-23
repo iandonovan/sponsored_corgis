@@ -3,7 +3,7 @@
 
 	"name": "Sponsored Corgis",
 	"description": "Replace Facebook 'Sponsored Stories' with pictures of corgis.",
-	"version": "1.0",
+	"version": "1.1",
 
 	"permissions": [
 		"https://www.facebook.com/",

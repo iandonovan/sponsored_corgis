@@ -38,7 +38,7 @@ var corgi_generator = {
 	'safe_search=1&' +
 	'content_type=1&' +
 	'sort=interestingness-desc&' +
-	'per_page=250',
+	'per_page=400',
 
 	get_corgis: function() {
 		var req = new XMLHttpRequest();
