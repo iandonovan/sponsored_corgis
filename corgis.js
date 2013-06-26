@@ -32,7 +32,7 @@ function corgi_attack(ad_story){
 	var corgi_img_URL = pick_corgi();
 	var corgi_story = place_corgi(ad_story, corgi_img_URL);
 	// Click a corgi to swap a new one in
-	corgi_story.onClick = swap_corgi;
+	corgi_story.onclick = function() { this.src = pick_corgi(); }
 }
 
 function pick_corgi(){
@@ -49,13 +49,8 @@ function place_corgi(ad_story, corgi_img_URL){
 	corgi_img.src = corgi_img_URL;
 	corgi_img.height = ad_height;
 	corgi_img.width = ad_width;
-	corgi_story = ad_story.parentNode.replaceChild(corgi_img, ad_story);
-	return corgi_story;
-}
-
-function swap_corgi(){
-	console.log("Called swap on " + this);
-	this.src = pick_corgi();
+	ad_story.parentNode.replaceChild(corgi_img, ad_story);
+	return corgi_img;
 }
 
 get_localstorage_URLs();
