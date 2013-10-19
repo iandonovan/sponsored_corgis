@@ -1,6 +1,8 @@
 // Corgis enabled on install
 chrome.runtime.onInstalled.addListener(function(details){
-	localStorage["enable_corgis"] = true;
+	localStorage["enable_extension"] = true;
+	localStorage["use_corgis"] = true;
+	localStorage["use_custom"] = false;
 	corgi_generator.get_corgis();
 });
 
@@ -11,7 +13,7 @@ chrome.tabs.onUpdated.addListener(function(id, info, tab){
 		chrome.pageAction.show(tab.id);
 
 	// Inject code to turn stories into corgis
-		if (localStorage["enable_corgis"] == "true"){
+		if (localStorage["enable_extension"] == "true"){
 			chrome.tabs.executeScript(null, {"file": "corgis.js"});
 		}
 	}

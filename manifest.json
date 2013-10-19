@@ -3,15 +3,21 @@
 
 	"name": "Sponsored Corgis",
 	"description": "Replace Facebook 'Sponsored Stories' with pictures of corgis.",
-	"version": "1.1",
+	"version": "1.2",
 
 	"permissions": [
 		"https://www.facebook.com/",
 		"http://www.facebook.com/",
 		"https://www.secure.flickr.com/",
 		"tabs",
-		"storage"
+		"storage",
+		"contextMenus"
 	],
+
+	"icons": {
+		"16": "images/tiny.png",
+		"48": "images/icon.png"
+	},
 
 	"page_action": {
 	"default_title": "Sponsored Corgis",

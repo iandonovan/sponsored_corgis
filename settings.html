@@ -5,11 +5,14 @@
 	<body>
 		<div style="width:140px; height:20px">
 			<form id="sponsored_corgis" action="" method="">
-				<label>
-					<input type="checkbox" id="corgi_checkbox" name="corgi_checkbox">
-						CORGI TIME!
-					</input>
-				</label>
+				<input type="checkbox" id="enable_checkbox" name="enable_checkbox" />
+				<label for="enable_checkbox">Enable</label>
+			<div id="radios">
+				<input type="radio" name="image_type" id="use_corgis" />
+				<label for="use_corgis">Corgis</label>
+				<input type="radio" name="image_type" id="use_custom" />
+				<label for="use_custom">Custom</label>
+			</div>
 			</form>
 		</div>
 		<script src="settings.js"></script>
