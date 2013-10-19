@@ -14,12 +14,7 @@
 		"contextMenus"
 	],
 
-	"icons": {
-		"16": "images/tiny.png",
-		"48": "images/icon.png"
-	},
-
-	"page_action": {
+	"browser_action": {
 	"default_title": "Sponsored Corgis",
 	"default_icon": "images/icon.png",
 	"default_popup": "settings.html"

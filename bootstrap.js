@@ -6,28 +6,23 @@ chrome.runtime.onInstalled.addListener(function(details){
 	corgi_generator.get_corgis();
 });
 
-// Do our thing when the user is on Facebook
 chrome.tabs.onUpdated.addListener(function(id, info, tab){
-	// Show the icon
+	chrome.tabs.executeScript(null, {"file": "save_custom_image.js"})
 	if (tab.url.toLowerCase().indexOf("facebook.com") !== -1){
-		chrome.pageAction.show(tab.id);
-
-	// Inject code to turn stories into corgis
-		if (localStorage["enable_extension"] == "true"){
-			chrome.tabs.executeScript(null, {"file": "corgis.js"});
-		}
+	// Inject code to replace ads
+		if (localStorage["enable_extension"] == "true")
+			chrome.tabs.executeScript(null, {"file": "ad_replacement.js"});
 	}
 });
 
-// Show the popup when the page action is clicked
-chrome.pageAction.onClicked.addListener(function(tab){
-	chrome.pageAction.show(tab.id);
-});
-
-// Listen for the request from corgis.js to pass localStorage
+// Listen for the request to pass localStorage
 chrome.extension.onMessage.addListener(function(request, sender, sendResponse){
-	if (request.method == "get_corgi_URLs")
-		sendResponse({corgi_URLs: localStorage["corgi_URLs"]});
+	if (request.method == "get_correct_images"){
+		if (localStorage["use_corgis"] == "true")
+			sendResponse({image_URLs: localStorage["corgi_URLs"]});
+		else
+			sendResponse({image_URLs: localStorage["custom_URLs"]});
+	}
 });
 
 // Adapted from Google Chrome Extension doc/tutorial
