@@ -3,25 +3,27 @@ chrome.runtime.onInstalled.addListener(function(details){
 	localStorage["enable_extension"] = true;
 	localStorage["use_corgis"] = true;
 	localStorage["use_custom"] = false;
+	if (localStorage["custom_URLs"] === undefined)
+		localStorage["custom_URLs"] = JSON.stringify([]);
 	corgi_generator.get_corgis();
 });
 
+// Inject ad-replacing code on Facebook
 chrome.tabs.onUpdated.addListener(function(id, info, tab){
-	chrome.tabs.executeScript(null, {"file": "save_custom_image.js"})
 	if (tab.url.toLowerCase().indexOf("facebook.com") !== -1){
-	// Inject code to replace ads
 		if (localStorage["enable_extension"] == "true")
 			chrome.tabs.executeScript(null, {"file": "ad_replacement.js"});
 	}
 });
 
-// Listen for the request to pass localStorage
+// Listen for the request to pass localStorage and other messages
 chrome.extension.onMessage.addListener(function(request, sender, sendResponse){
 	if (request.method == "get_correct_images"){
-		if (localStorage["use_corgis"] == "true")
-			sendResponse({image_URLs: localStorage["corgi_URLs"]});
-		else
+		var custom_url_length = JSON.parse(localStorage["custom_URLs"]).length
+		if (localStorage["use_custom"] == "true" && custom_url_length > 0)
 			sendResponse({image_URLs: localStorage["custom_URLs"]});
+		else
+			sendResponse({image_URLs: localStorage["corgi_URLs"]});
 	}
 });
 

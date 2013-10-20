@@ -5,6 +5,7 @@ function get_localstorage_URLs(){
 }
 
 function replace_all_ads(){
+	get_localstorage_URLs()
 	// Ads on the side of the page
 	var side_ads = document.getElementsByClassName("ego_column");
 	for (var i=0; i<side_ads.length; i++){
@@ -55,6 +56,5 @@ function swap_image(ad_story, img_URL){
 
 // Possibly make this a whole thing that checks if it's still enabled
 // and grabs the right pictures if it is, each time, before swapping ads
-get_localstorage_URLs();
 replace_all_ads();
 document.addEventListener("scroll", replace_all_ads);
