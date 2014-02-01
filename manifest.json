@@ -3,7 +3,7 @@
 
 	"name": "Sponsored Corgis",
 	"description": "Replace Facebook 'Sponsored Stories' with pictures of corgis.",
-	"version": "1.2",
+	"version": "1.2.1",
 
 	"icons": {
 		"128": "images/icon128.png"

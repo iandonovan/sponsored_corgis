@@ -12,7 +12,7 @@ function replace_all_ads(){
 		replace_ad(side_ads[i]);
 	}
 	// And in the actual newsfeed
-	var stories = document.getElementsByClassName("uiUnifiedStory");
+	var stories = document.getElementsByClassName("userContentWrapper");
 	for (var i=0; i<stories.length; i++){
 		var story = stories[i];
 		var ad = story.getElementsByClassName("uiStreamAdditionalLogging");
