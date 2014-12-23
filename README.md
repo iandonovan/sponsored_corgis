@@ -1,4 +1,4 @@
-# Sponsored Corgis
+# Sponsored Corgis [![Code Climate](https://codeclimate.com/github/iandonovan/sponsored_corgis/badges/gpa.svg)](https://codeclimate.com/github/iandonovan/sponsored_corgis)
 
 Sponsored Corgis is a Google Chrome extension that replaces Facebook "Sponsored Story" content with pictures of adorable corgis. Since this is the first Chrome extension I've built, I used a whole bunch of resources along the way. Here are the highlights:
 
